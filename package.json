@@ -1,0 +1,13 @@
+{
+  "name": "tg-inline-twitter-to-album-bot",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "soumasandesu<hkgsherlock@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "restify": "^8.5.1",
+    "slimbot": "^4.8.0",
+    "twitter": "^1.7.1",
+    "url-join": "^4.0.1"
+  }
+}
