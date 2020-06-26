@@ -25,4 +25,18 @@ bot.on("message", (msg) => {
         `text: ${msg.text}\n` +
         `time: ${msg.date}`
     );
-})
+});
+
+const handleShutdown = (sig) => () => {
+    console.info(`${sig} signal received.`);
+    if (bot.hasOpenWebHook()) {
+        bot.closeWebHook()
+            .then(() => console.log("Telegram webhook stopped"));
+    }
+    if (bot.isPolling()) {
+        bot.stopPolling()
+            .then(() => console.log("Telegram polling stopped"));
+    }
+    console.log("exiting...");
+};
+["SIGINT", "SIGTERM"].forEach((sig) => process.on(sig, handleShutdown(sig)));
