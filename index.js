@@ -28,8 +28,10 @@ server.post(SERVER_TG_REQUEST_API_ENTRY, (req, res, next) => {
         slimbot.sendMessage(
             message.chat.id, 
             "Message received:\n" +
-            `from: ${message.from.username}\n` +
-            `text: ${message.text}\n`);
+            `from: ${message.from.username}\n`+
+            `text: ${message.text}\n` +
+            `time: ${message.date}`
+        );
     }
     return next();
 });
