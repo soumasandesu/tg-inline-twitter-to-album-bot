@@ -5,6 +5,7 @@
   "author": "soumasandesu<hkgsherlock@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "node-telegram-bot-api": "^0.50.0",
     "twitter": "^1.7.1",
     "url-join": "^4.0.1"
   },
