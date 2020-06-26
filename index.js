@@ -18,6 +18,7 @@ const bot = new TelegramBot(TELEGRAM_TOKEN, {
 bot.setWebHook(UrlJoin(BASE_URL, `/bot${TELEGRAM_TOKEN}`));
 
 bot.on("message", (msg) => {
+    console.log(JSON.stringify(msg));
     bot.sendMessage(
         msg.chat.id,
         "Message received:\n" +
