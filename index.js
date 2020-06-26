@@ -23,6 +23,7 @@ const server = Restify.createServer();
 server.use(Restify.plugins.bodyParser());
 server.post(SERVER_TG_REQUEST_API_ENTRY, (req, res, next) => {
     const update = req.body || {};
+    console.log(JSON.stringify(update));
     if (update.message) {
         const { message } = update;
         slimbot.sendMessage(
