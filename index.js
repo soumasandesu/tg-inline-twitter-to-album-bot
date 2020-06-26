@@ -22,7 +22,7 @@ bot.on("message", (msg) => {
 
     const { chat, date, from, text } = msg;
 
-    if (typeof text !== 'text' || text.length === 0) {
+    if (typeof text !== "string" || text.length === 0) {
         return;
     }
 
