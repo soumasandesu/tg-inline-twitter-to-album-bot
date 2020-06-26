@@ -22,7 +22,7 @@ const slimbot = new Slimbot(TELEGRAM_TOKEN);
 const server = Restify.createServer();
 server.use(Restify.plugins.bodyParser());
 server.post(SERVER_TG_REQUEST_API_ENTRY, (req, res, next) => {
-    const context = req.body;
+    const update = req.body;
     if (update.message) {
         slimbot.sendMessage(message.chat.id, "Message received");
     }
