@@ -33,5 +33,12 @@ console.log(`setting telegram webhook url to ${tgUrl}`);
 slimbot.setWebhook({
     url: tgUrl,
 });
-server.listen(PORT);
-console.log(`listening to port ${PORT}`);
+server.listen(PORT, () => console.log(`listening to port ${PORT}`));
+
+const handleShutdown = (sig) => () => {
+    console.info(`${sig} signal received.`);
+    server.close(() => {
+        console.log('Http server closed.');
+    });
+};
+["SIGINT", "SIGTERM"].forEach((sig) => process.on(sig, handleShutdown(sig)));
