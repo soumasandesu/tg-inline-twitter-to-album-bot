@@ -38,8 +38,7 @@ server.listen(PORT, () => console.log(`listening to port ${PORT}`));
 
 const handleShutdown = (sig) => () => {
     console.info(`${sig} signal received.`);
-    server.close(() => {
-        console.log('Http server closed.');
-    });
+    slimbot.deleteWebhook(() => console.log("Telegram webhook deleted"));
+    server.close(() => console.log('Http server closed.'));
 };
 ["SIGINT", "SIGTERM"].forEach((sig) => process.on(sig, handleShutdown(sig)));
