@@ -21,8 +21,8 @@ bot.on("message", (msg) => {
     bot.sendMessage(
         msg.chat.id,
         "Message received:\n" +
-        `from: ${message.from.username}\n`+
-        `text: ${message.text}\n` +
-        `time: ${message.date}`
+        `from: ${msg.from.username}\n`+
+        `text: ${msg.text}\n` +
+        `time: ${msg.date}`
     );
 })
