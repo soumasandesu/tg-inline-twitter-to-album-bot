@@ -33,12 +33,12 @@ bot.on("message", (msg) => {
     );
 });
 bot.setWebHook(UrlJoin(BASE_URL, `/bot${TELEGRAM_TOKEN}`));
-bot.setMyCommands({ commands: [
+bot.setMyCommands([
     {
         command: "/album",
         description: "TWEET_URL  Fetch a tweet and convert as a telegram album message.",
     }
-] })
+]);
 
 const handleShutdown = (sig) => () => {
     console.info(`${sig} signal received.`);
