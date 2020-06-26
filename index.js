@@ -25,7 +25,11 @@ server.post(SERVER_TG_REQUEST_API_ENTRY, (req, res, next) => {
     const update = req.body || {};
     if (update.message) {
         const { message } = update;
-        slimbot.sendMessage(message.chat.id, "Message received");
+        slimbot.sendMessage(
+            message.chat.id, 
+            "Message received:\n" +
+            `from: ${message.from.username}\n` +
+            `text: ${message.text}\n`);
     }
     return next();
 });
