@@ -19,12 +19,19 @@ bot.setWebHook(UrlJoin(BASE_URL, `/bot${TELEGRAM_TOKEN}`));
 
 bot.on("message", (msg) => {
     console.log(JSON.stringify(msg));
+
+    const { chat, date, from, text } = msg;
+
+    if (typeof text !== 'text' || text.length === 0) {
+        return;
+    }
+
     bot.sendMessage(
-        msg.chat.id,
+        chat.id,
         "Message received:\n" +
-        `from: ${msg.from.username}\n`+
-        `text: ${msg.text}\n` +
-        `time: ${msg.date}`
+        `from: ${from.username}\n`+
+        `text: ${text}\n` +
+        `time: ${date}`
     );
 });
 
